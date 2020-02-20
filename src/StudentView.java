@@ -27,7 +27,7 @@ public class StudentView {
     }
 
     public void incorrectEnter(){
-        
+        System.out.println("You enter incorrect data");
     }
 
 }

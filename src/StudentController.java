@@ -4,17 +4,15 @@ public class StudentController {
     private Model model;
     private StudentView view;
 
-
-
     public StudentController(Model model, StudentView view){
         this.model = model;
         this.view = view;
     }
 
-    public void update(String name, String rollNo){
+   /* public void update(String name, String rollNo){
         Student student = new Student(rollNo, name);
         model.update(student);
-    }
+    }*/
     public void read(){
         ArrayList<Student> list = model.retriveStudentFromDatabase();
         for(Student l:list){
@@ -26,21 +24,24 @@ public class StudentController {
         view.readAnswer();
     }
     public void notifyUser(String answer){
-        //
-        System.out.println(answer);
+
         String read = "Read";
+        String enter = "Enter";
+        if(!answer.equals(enter) && !answer.equals(read)) {
+            view.incorrectEnter();
+        }
         if(answer.equals(read)){
             read();
         }
-
-        else {
+        if(answer.equals(enter)){
             view.readStudentDetails();
         }
+        readConsole();
     }
 
     public void createUser(String name, String anotherValue) {
         Student newStudent = new Student(anotherValue,name);
         model.update(newStudent);
-        view.readAnswer();
+        //view.readAnswer();
     }
 }
