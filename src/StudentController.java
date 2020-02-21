@@ -3,10 +3,16 @@ import java.util.ArrayList;
 public class StudentController {
     private Model model;
     private StudentView view;
+    private StudentGUIView guiView;
 
     public StudentController(Model model, StudentView view){
         this.model = model;
         this.view = view;
+    }
+
+    public StudentController(Model model, StudentGUIView guiView){
+        this.model = model;
+        this.guiView = guiView;
     }
 
    /* public void update(String name, String rollNo){
